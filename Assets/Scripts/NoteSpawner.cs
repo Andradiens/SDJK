@@ -16,7 +16,6 @@ public class NoteSpawner : MonoBehaviour
     {
         BeatmapData beatmap = JsonUtility.FromJson<BeatmapData>(beatmapJson.text);
         beatList = beatmap.notes;
-        Debug.Log("Loaded beatmap with " + beatList.Count + " notes.");
     }
 
     public void Update()
@@ -24,7 +23,7 @@ public class NoteSpawner : MonoBehaviour
         if (nextBeatIndex < beatList.Count)
         {
             NoteData nextBeat = beatList[nextBeatIndex];
-            Vector3 spawnPosition = new Vector3(lanePositions[nextBeat.laneIndex], 0f, 0f);
+            Vector3 spawnPosition = new Vector3(lanePositions[nextBeat.laneIndex], 15f, 0f);
 
             if (conductor.songPositionInBeats >= nextBeat.noteBeat - spawnDistanceInBeats)
             {

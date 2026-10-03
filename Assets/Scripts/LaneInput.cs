@@ -14,22 +14,18 @@ public class LaneInput : MonoBehaviour
     {
         if (lane1.action.WasPressedThisFrame())
         {
-            Debug.Log("Lane 1 pressed");
             judge.JudgeLane(0);
         }
         if (lane2.action.WasPressedThisFrame())
         {
-            Debug.Log("Lane 2 pressed");
             judge.JudgeLane(1);
         }
         if (lane3.action.WasPressedThisFrame())
         {
-            Debug.Log("Lane 3 pressed");
             judge.JudgeLane(2);
         }
         if (lane4.action.WasPressedThisFrame())
         {
-            Debug.Log("Lane 4 pressed");
             judge.JudgeLane(3);
         }
     }

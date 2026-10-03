@@ -96,7 +96,6 @@ public class Judge : MonoBehaviour
     private void RegisterJudgement(Judgement judgement)
     {
         JudgementData data = judgementData[(int)judgement];
-        Debug.Log(data.name);
         score += data.score;
         data.count++;
         totalPercentage += data.percentage;
