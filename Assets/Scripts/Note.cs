@@ -3,6 +3,7 @@ using UnityEngine;
 public class Note : MonoBehaviour
 {
     public float noteBeat;
+    public int laneIndex;
     public float endPosition = 0f;
     public Conductor conductor;
 
@@ -13,10 +14,12 @@ public class Note : MonoBehaviour
         Vector3 notePosition = transform.position;
         notePosition.y = endPosition - distance;
         transform.position = notePosition;
-
-        if (notePosition.y < -12f)
-        {
-            Destroy(gameObject);
-        }
     }
+}
+
+[System.Serializable]
+public class NoteData
+{
+    public float noteBeat;
+    public int laneIndex;
 }
