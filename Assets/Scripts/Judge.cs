@@ -9,6 +9,7 @@ public class Judge : MonoBehaviour
     public TMP_Text judgementText;
 
     public JudgementData[] judgementData;
+    public KeyVisual[] keys;
     public Conductor conductor;
     public NoteSpawner noteSpawner;
     public float perfectThreshold = 0.05f;
@@ -80,16 +81,19 @@ public class Judge : MonoBehaviour
         if (timeDifference <= perfectThreshold)
         {
             RegisterJudgement(Judgement.Perfect);
+            keys[note.laneIndex].Pop();
             isNoteHit = true;
         }
         else if (timeDifference <= greatThreshold)
         {
             RegisterJudgement(Judgement.Great);
+            keys[note.laneIndex].Pop();
             isNoteHit = true;
         }
         else if (timeDifference <= goodThreshold)
         {
             RegisterJudgement(Judgement.Good);
+            keys[note.laneIndex].Pop();
             isNoteHit = true;
         }
         else if (timeDifference <= missThreshold)
@@ -111,7 +115,7 @@ public class Judge : MonoBehaviour
     private void RegisterJudgement(Judgement judgement)
     {
         JudgementData data = judgementData[(int)judgement];
-        score += data.score;
+        score += data.score * combo;
         data.count++;
         totalPercentage += data.percentage;
         judgementText.text = data.name;

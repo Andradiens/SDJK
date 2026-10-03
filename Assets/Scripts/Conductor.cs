@@ -12,7 +12,6 @@ public class Conductor : MonoBehaviour
     public float scrollSpeed = 3f;
 
     private AudioSource musicSource;
-    public AudioSource audioSource;
 
     private int lastBeat = -1;
 
@@ -37,7 +36,6 @@ public class Conductor : MonoBehaviour
 
         if (currentBeat > lastBeat)
         {
-            audioSource.PlayOneShot(audioSource.clip);
             lastBeat = currentBeat;
         }
     }
