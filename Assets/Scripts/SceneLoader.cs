@@ -15,7 +15,12 @@ public class SceneLoader : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("MusicPlay");
+        SceneManager.LoadScene("BeatmapList");
+    }
+
+    public void Edit()
+    {
+        SceneManager.LoadScene("BeatmapEdit");
     }
 
     public void Exit()

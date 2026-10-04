@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 302392183}
   - component: {fileID: 302392182}
   m_Layer: 5
-  m_Name: MainMenuBtn
+  m_Name: BeatmapListBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 427426263}
   - component: {fileID: 427426262}
   m_Layer: 5
-  m_Name: MainMenuTxt
+  m_Name: BeatmapListTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Main Menu
+  m_text: Choose Song
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
