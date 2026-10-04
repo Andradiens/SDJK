@@ -20,6 +20,7 @@ public class Judge : MonoBehaviour
     public float popScale = 1.3f;
     private float timer = 0f;
     public int combo = 0;
+    public int maxCombo;
     
 
     public enum Judgement
@@ -129,6 +130,10 @@ public class Judge : MonoBehaviour
         else
         {
             combo++;
+            if (combo > maxCombo)
+            {
+                maxCombo = combo;
+            }
         }
 
         notesJudged++;
@@ -155,6 +160,17 @@ public class Judge : MonoBehaviour
             Note firstNote = noteSpawner.lanes[lane].notes[0];
             JudgeNoteHit(firstNote);
         }
+    }
+
+    public void SaveResults()
+    {
+        GameResults.finalScore = score;
+        GameResults.precision = precision;
+        GameResults.maxCombo = maxCombo;
+        GameResults.perfects = judgementData[0].count;
+        GameResults.greats = judgementData[1].count;
+        GameResults.goods = judgementData[2].count;
+        GameResults.misses = judgementData[3].count;
     }
 }
 
