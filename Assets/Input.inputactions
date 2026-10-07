@@ -3,7 +3,7 @@
     "name": "Input",
     "maps": [
         {
-            "name": "PlayerInput",
+            "name": "Gameplay",
             "id": "bd883f90-e52c-4d17-80c0-d0d2ebbd6f88",
             "actions": [
                 {
@@ -89,6 +89,35 @@
                     "processors": "",
                     "groups": "",
                     "action": "Lane4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "UI",
+            "id": "b829f520-e130-4f51-8a0f-aac146b0ef0f",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "df045320-d3d0-49b4-9abd-0d37da3d171f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4f1ca74d-517d-4fda-bb83-b3bb1f8904ee",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

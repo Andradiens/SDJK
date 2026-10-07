@@ -15,6 +15,9 @@ public class Conductor : MonoBehaviour
 
     private int lastBeat = -1;
 
+    private bool isPaused;
+    private double pauseStartDspTime;
+
     private void Start()
     {
         musicSource = GetComponent<AudioSource>();
@@ -28,6 +31,9 @@ public class Conductor : MonoBehaviour
 
     private void Update()
     {
+        if (isPaused)
+            return;
+
         songPosition = (double)(AudioSettings.dspTime - dspSongTime - offset);
 
         songPositionInBeats = songPosition / secPerBeat;
@@ -38,5 +44,30 @@ public class Conductor : MonoBehaviour
         {
             lastBeat = currentBeat;
         }
+    }
+
+    public void PauseSong()
+    {
+        if (isPaused)
+            return;
+
+        isPaused = true;
+        pauseStartDspTime = AudioSettings.dspTime;
+
+        musicSource.Pause();
+    }
+
+    public void Resume()
+    {
+        if (!isPaused)
+            return;
+
+        double pauseDuration = AudioSettings.dspTime - pauseStartDspTime;
+
+        dspSongTime += pauseDuration;
+
+        musicSource.UnPause();
+
+        isPaused = false;
     }
 }

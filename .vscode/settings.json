@@ -67,6 +67,6 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "SDJK.slnx",
+    "dotnet.defaultSolution": "MyRhythmGame.slnx",
     "dotnet.enableWorkspaceBasedDevelopment": false
 }
