@@ -21,8 +21,17 @@ public class Conductor : MonoBehaviour
     private void Start()
     {
         musicSource = GetComponent<AudioSource>();
+    }
 
+    public void PlayBeatmap(AudioClip music, float bpm)
+    {
+        musicSource.clip = music;
+        this.bpm = bpm;
         secPerBeat = 60f / bpm;
+
+        lastBeat = -1;
+        songPosition = 0d;
+        songPositionInBeats = 0d;
 
         dspSongTime = AudioSettings.dspTime + songDelay;
 
