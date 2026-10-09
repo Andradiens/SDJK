@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class BeatmapListManager : MonoBehaviour
@@ -22,5 +23,14 @@ public class BeatmapListManager : MonoBehaviour
     {
         selectedBeatmap = beatmap;
         beatmapDetailsUI.DetailsUpdate(selectedBeatmap);
+    }
+
+    public void PlaySelectedBeatmap()
+    {
+        if (selectedBeatmap == null)
+            return;
+
+        SelectedBeatmap.newBeatmapData = selectedBeatmap;
+        SceneManager.LoadScene("MusicPlay");
     }
 }

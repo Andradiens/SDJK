@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &20028095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -280,7 +280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &35320710
 RectTransform:
   m_ObjectHideFlags: 0
@@ -344,7 +344,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 35320712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1082561441}
+        m_TargetAssemblyTypeName: BeatmapListManager, Assembly-CSharp
+        m_MethodName: PlaySelectedBeatmap
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &35320712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1136,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Play
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1325,7 +1337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1058664628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1564,7 +1576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1555469491
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1776,7 +1788,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1783279781
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1940,10 +1952,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bffb8c949bfe4549bdb42fe13187de6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeatmapDetailsUI
-  beatmapCover: {fileID: 0}
-  songTitle: {fileID: 0}
-  artistName: {fileID: 0}
-  information: {fileID: 0}
+  beatmapCover: {fileID: 1058664629}
+  songTitle: {fileID: 1783279782}
+  artistName: {fileID: 1555469492}
+  information: {fileID: 20028096}
+  playBtn: {fileID: 35320711}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

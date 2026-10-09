@@ -45,7 +45,10 @@ public class Conductor : MonoBehaviour
 
         songPosition = (double)(AudioSettings.dspTime - dspSongTime - offset);
 
-        songPositionInBeats = songPosition / secPerBeat;
+        if (secPerBeat > 0)
+            songPositionInBeats = songPosition / secPerBeat;
+        else
+            return;
 
         int currentBeat = Mathf.FloorToInt((float)songPositionInBeats);
 
