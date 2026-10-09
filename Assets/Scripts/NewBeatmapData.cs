@@ -9,6 +9,8 @@ public class NewBeatmapData : ScriptableObject
 
     public string difficultyName;
     public float difficulty;
+    public float bpm;
+    public float scrollSpeed;
 
     public AudioClip music;
     public Sprite background;

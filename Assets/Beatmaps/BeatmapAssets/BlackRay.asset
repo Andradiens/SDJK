@@ -17,6 +17,8 @@ MonoBehaviour:
   mapper: SDJK
   difficultyName: Hard
   difficulty: 3
+  bpm: 174
+  scrollSpeed: 0
   music: {fileID: 8300000, guid: 0328566bd94f33d42823c06502c0450f, type: 3}
   background: {fileID: 748138744332217318, guid: 7f245190ee72140488562904a51fbcca, type: 3}
   chart: {fileID: 0}

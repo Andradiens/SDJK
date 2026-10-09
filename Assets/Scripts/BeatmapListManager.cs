@@ -7,6 +7,7 @@ public class BeatmapListManager : MonoBehaviour
     public BeatmapItemUI beatmapBtnPrefab;
     public Transform beatmapButtonPos;
     public NewBeatmapData selectedBeatmap;
+    public BeatmapDetailsUI beatmapDetailsUI;
 
     public void Start()
     {
@@ -20,5 +21,6 @@ public class BeatmapListManager : MonoBehaviour
     public void BeatmapDetailsUpdate(NewBeatmapData beatmap)
     {
         selectedBeatmap = beatmap;
+        beatmapDetailsUI.DetailsUpdate(selectedBeatmap);
     }
 }
