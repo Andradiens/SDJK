@@ -18,7 +18,7 @@ MonoBehaviour:
   difficultyName: Normal
   difficulty: 2
   bpm: 150
-  scrollSpeed: 0
+  scrollSpeed: 3
   music: {fileID: 8300000, guid: 4cf063c974175ab419c2f80b72fb200b, type: 3}
   background: {fileID: -2902762309656859227, guid: a33a504ff0d6b8941ac10f3206b14510, type: 3}
   chart: {fileID: 0}

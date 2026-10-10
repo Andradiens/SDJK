@@ -10,16 +10,17 @@ public class NoteSpawner : MonoBehaviour
     public float spawnDistanceInBeats;
     public float[] lanePositions;
     public LaneNotes[] lanes;
-    public TextAsset beatmapJson;
 
     private void Start()
     {
-        BeatmapData beatmap = JsonUtility.FromJson<BeatmapData>(beatmapJson.text);
-        beatList = beatmap.notes;
+        
     }
 
     public void Update()
     {
+        if (beatList == null)
+            return;
+
         if (nextBeatIndex < beatList.Count)
         {
             NoteData nextBeat = beatList[nextBeatIndex];
@@ -37,6 +38,24 @@ public class NoteSpawner : MonoBehaviour
                 nextBeatIndex++;
             }
         }
+    }
+
+    public void ReceiveChart(TextAsset chart)
+    {
+        if (chart == null)
+        {
+            Debug.LogError("Chart is null");
+            return;
+        }
+
+        BeatmapData beatmap = JsonUtility.FromJson<BeatmapData>(chart.text);
+        if (beatmap == null || beatmap.notes == null)
+        {
+            Debug.LogError("Beatmap or beatmap.notes is null");
+            return;
+        }
+
+        beatList = beatmap.notes;
     }
 }
 

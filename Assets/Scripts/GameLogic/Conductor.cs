@@ -9,7 +9,7 @@ public class Conductor : MonoBehaviour
     public double songPosition;
     public double songPositionInBeats;
     public double dspSongTime;
-    public float scrollSpeed = 3f;
+    public float scrollSpeed;
 
     private AudioSource musicSource;
 
@@ -18,17 +18,18 @@ public class Conductor : MonoBehaviour
     private bool isPaused;
     private double pauseStartDspTime;
 
-    private void Start()
+    private void Awake()
     {
         musicSource = GetComponent<AudioSource>();
     }
 
-    public void PlayBeatmap(AudioClip music, float bpm)
+    public void PlayBeatmap(AudioClip music, float bpm, float scrollSpeed)
     {
         musicSource.clip = music;
+        this.scrollSpeed = scrollSpeed;
         this.bpm = bpm;
         secPerBeat = 60f / bpm;
-
+        
         lastBeat = -1;
         songPosition = 0d;
         songPositionInBeats = 0d;
