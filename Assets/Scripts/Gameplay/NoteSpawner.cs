@@ -40,39 +40,43 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    public void ReceiveChart(TextAsset chart, AudioClip music, float secPerBeat, float offset)
+    public bool ReceiveChart(TextAsset chart, AudioClip music, float bpm, float offset)
     {
         if (chart == null)
         {
             Debug.LogError("Chart is null");
-            return;
+            return false;
         }
 
         BeatmapData beatmap = JsonUtility.FromJson<BeatmapData>(chart.text);
         if (beatmap == null || beatmap.notes == null)
         {
             Debug.LogError("Beatmap or beatmap.notes is null");
-            return;
+            return false;
         }
 
-        if (music == null || secPerBeat <= 0)
+        if (music == null || bpm <= 0)
         {
-            Debug.LogError("Music ou secPerBeat is null");
-            return;
+            Debug.LogError("Music or BPM is null");
+            return false;
         }
-        
-        float maxBeat = MaxBeatCalc(music, secPerBeat, offset);
+
+        float maxBeat = MaxBeatCalc(music, bpm, offset);
+        if (maxBeat < 0)
+        {
+            return false;
+        }
         foreach (NoteData note in beatmap.notes)
         {
             if (note.laneIndex < 0 || note.laneIndex >= 4)
             {
                 Debug.LogError("Invalid Lane");
-                return;
+                return false;
             }
             if (note.noteBeat < 0 || note.noteBeat > maxBeat)
             {
                 Debug.LogError("Invalid NoteBeat");
-                return;
+                return false;
             }
         }
 
@@ -80,11 +84,34 @@ public class NoteSpawner : MonoBehaviour
 
         beatList = beatmap.notes;
         nextBeatIndex = 0;
+        return true;
     }
 
-    public float MaxBeatCalc(AudioClip music, float secPerBeat, float offset)
+    public float MaxBeatCalc(AudioClip music, float bpm, float offset)
     {
-        float totalBeats = (music.length - offset) / secPerBeat;
+        if (music == null)
+        {
+            Debug.LogError("Music is null");
+            return -1f;
+        }
+
+        if (bpm <= 0)
+        {
+            Debug.LogError("BPM must be greater than zero");
+            return -1f;
+        }
+
+        float availableDuration = music.length - offset;
+
+        if (offset < 0 || availableDuration <= 0)
+        {
+            Debug.LogError("Invalid offset: no valid duration remains");
+            return -1f;
+        }
+
+        float secPerBeat = 60f / bpm;
+        float totalBeats = availableDuration / secPerBeat;
+
         return totalBeats;
     }
 }

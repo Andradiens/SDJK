@@ -14,8 +14,13 @@ public class GameplayInitializer : MonoBehaviour
             Debug.LogError("Nao existe Beatmap");
             return;
         }
+        
+        bool chartLoaded = noteSpawner.ReceiveChart(beatmap.chart, beatmap.music, beatmap.bpm, beatmap.offset);
+        if (!chartLoaded)
+        {
+            return;
+        }
 
         conductor.PlayBeatmap(beatmap.music, beatmap.bpm, beatmap.scrollSpeed, beatmap.offset);
-        noteSpawner.ReceiveChart(beatmap.chart, beatmap.music, conductor.secPerBeat, beatmap.offset);
     }
 }
