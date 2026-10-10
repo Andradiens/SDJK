@@ -11,6 +11,7 @@ public class NewBeatmapData : ScriptableObject
     public float difficulty;
     public float bpm;
     public float scrollSpeed;
+    public float offset;
 
     public AudioClip music;
     public Sprite background;

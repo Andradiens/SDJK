@@ -15,7 +15,7 @@ public class GameplayInitializer : MonoBehaviour
             return;
         }
 
-        conductor.PlayBeatmap(beatmap.music, beatmap.bpm, beatmap.scrollSpeed);
-        noteSpawner.ReceiveChart(beatmap.chart);
+        conductor.PlayBeatmap(beatmap.music, beatmap.bpm, beatmap.scrollSpeed, beatmap.offset);
+        noteSpawner.ReceiveChart(beatmap.chart, beatmap.music, conductor.secPerBeat, beatmap.offset);
     }
 }

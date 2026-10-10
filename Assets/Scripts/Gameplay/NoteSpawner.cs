@@ -40,7 +40,7 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    public void ReceiveChart(TextAsset chart)
+    public void ReceiveChart(TextAsset chart, AudioClip music, float secPerBeat, float offset)
     {
         if (chart == null)
         {
@@ -55,7 +55,37 @@ public class NoteSpawner : MonoBehaviour
             return;
         }
 
+        if (music == null || secPerBeat <= 0)
+        {
+            Debug.LogError("Music ou secPerBeat is null");
+            return;
+        }
+        
+        float maxBeat = MaxBeatCalc(music, secPerBeat, offset);
+        foreach (NoteData note in beatmap.notes)
+        {
+            if (note.laneIndex < 0 || note.laneIndex >= 4)
+            {
+                Debug.LogError("Invalid Lane");
+                return;
+            }
+            if (note.noteBeat < 0 || note.noteBeat > maxBeat)
+            {
+                Debug.LogError("Invalid NoteBeat");
+                return;
+            }
+        }
+
+        beatmap.notes.Sort((a, b) => a.noteBeat.CompareTo(b.noteBeat));
+
         beatList = beatmap.notes;
+        nextBeatIndex = 0;
+    }
+
+    public float MaxBeatCalc(AudioClip music, float secPerBeat, float offset)
+    {
+        float totalBeats = (music.length - offset) / secPerBeat;
+        return totalBeats;
     }
 }
 

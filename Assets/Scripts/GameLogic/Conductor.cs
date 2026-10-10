@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Conductor : MonoBehaviour
 {
-    public float bpm = 130;
+    public float bpm;
     public float secPerBeat;
-    public float offset = 0.05f;
+    public float offset;
     public float songDelay = 1f;
     public double songPosition;
     public double songPositionInBeats;
@@ -23,9 +23,10 @@ public class Conductor : MonoBehaviour
         musicSource = GetComponent<AudioSource>();
     }
 
-    public void PlayBeatmap(AudioClip music, float bpm, float scrollSpeed)
+    public void PlayBeatmap(AudioClip music, float bpm, float scrollSpeed, float offset)
     {
         musicSource.clip = music;
+        this.offset = offset;
         this.scrollSpeed = scrollSpeed;
         this.bpm = bpm;
         secPerBeat = 60f / bpm;
