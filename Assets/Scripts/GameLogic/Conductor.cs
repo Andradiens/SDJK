@@ -18,9 +18,15 @@ public class Conductor : MonoBehaviour
     private bool isPaused;
     private double pauseStartDspTime;
 
+    private const string VolumeKey = "MusicVolume";
+    private float musicVolume = 0.8f;
+
     private void Awake()
     {
         musicSource = GetComponent<AudioSource>();
+
+        musicVolume = PlayerPrefs.GetFloat(VolumeKey, 0.8f);
+        musicSource.volume = musicVolume;
     }
 
     public void PlayBeatmap(AudioClip music, float bpm, float scrollSpeed, float offset)
@@ -83,5 +89,14 @@ public class Conductor : MonoBehaviour
         musicSource.UnPause();
 
         isPaused = false;
+    }
+
+    public void SetMusicVolume(float volume)
+    {
+        musicVolume = Mathf.Clamp01(volume);
+        musicSource.volume = musicVolume;
+
+        PlayerPrefs.SetFloat(VolumeKey, musicVolume);
+        PlayerPrefs.Save();
     }
 }
