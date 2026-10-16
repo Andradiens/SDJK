@@ -19,13 +19,13 @@ public class Conductor : MonoBehaviour
     private double pauseStartDspTime;
 
     private const string VolumeKey = "MusicVolume";
-    private float musicVolume = 0.8f;
+    private float musicVolume = 1;
 
     private void Awake()
     {
         musicSource = GetComponent<AudioSource>();
 
-        musicVolume = PlayerPrefs.GetFloat(VolumeKey, 0.8f);
+        musicVolume = PlayerPrefs.GetFloat(VolumeKey, 1);
         musicSource.volume = musicVolume;
     }
 
