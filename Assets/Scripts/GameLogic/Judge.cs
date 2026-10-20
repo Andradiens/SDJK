@@ -116,7 +116,7 @@ public class Judge : MonoBehaviour
     private void RegisterJudgement(Judgement judgement)
     {
         JudgementData data = judgementData[(int)judgement];
-        score += data.score * combo;
+        score += data.score * (1+(combo/100));
         data.count++;
         totalPercentage += data.percentage;
         judgementText.text = data.name;
