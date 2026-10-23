@@ -3943,6 +3943,7 @@ MonoBehaviour:
   offsetInput: {fileID: 1848725066}
   statusTxt: {fileID: 1863890625}
   beatmapDropdown: {fileID: 1528507568}
+  saveBtn: {fileID: 1363321746}
   beatmapDataList:
   - {fileID: 11400000, guid: f3318df55e8a21e4fbd6c27de428dfca, type: 2}
   - {fileID: 11400000, guid: 6dd777840ef738947a0268838b248937, type: 2}
