@@ -12,10 +12,10 @@ public class Judge : MonoBehaviour
     public KeyVisual[] keys;
     public Conductor conductor;
     public NoteSpawner noteSpawner;
-    public float perfectThreshold = 0.05f;
-    public float greatThreshold = 0.09f;
-    public float goodThreshold = 0.13f;
-    public float missThreshold = 0.18f;
+    public float perfectThreshold = 0.07f;
+    public float greatThreshold = 0.19f;
+    public float goodThreshold = 0.385f;
+    public float missThreshold = 0.42f;
     public float displayTime = 0.6f;
     public float popScale = 1.3f;
     private float timer = 0f;

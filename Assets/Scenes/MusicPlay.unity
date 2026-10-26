@@ -2921,7 +2921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SongEnd
   conductor: {fileID: 1539846979}
-  music: {fileID: 1539846980}
   judge: {fileID: 1903895811}
   endDelay: 2
 --- !u!1 &1295288070
@@ -3761,7 +3760,7 @@ MonoBehaviour:
   - {fileID: 1542263795}
   conductor: {fileID: 1539846979}
   noteSpawner: {fileID: 1295288072}
-  perfectThreshold: 0.1
+  perfectThreshold: 0.07
   greatThreshold: 0.19
   goodThreshold: 0.385
   missThreshold: 0.42
