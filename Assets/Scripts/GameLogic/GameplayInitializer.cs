@@ -1,4 +1,3 @@
-using Unity.AppUI.Redux;
 using UnityEngine;
 
 public class GameplayInitializer : MonoBehaviour
