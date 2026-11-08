@@ -7,6 +7,7 @@ public class BeatmapEditorManager : MonoBehaviour
 {
     public TMP_InputField bpmInput;
     public TMP_InputField offsetInput;
+    public TMP_Text songTitleTxt;
     public TMP_Text statusTxt;
     public TMP_Dropdown beatmapDropdown;
     public UnityEngine.UI.Button saveBtn;
@@ -42,7 +43,7 @@ public class BeatmapEditorManager : MonoBehaviour
     {
         bpmInput.text = beatmap.bpm.ToString();
         offsetInput.text = (beatmap.offset * 1000).ToString();
-        statusTxt.text = beatmap.songName;
+        songTitleTxt.text = beatmap.songName;
     }
 
     private void OnBeatmapChange(int index)

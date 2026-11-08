@@ -3941,6 +3941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BeatmapEditorManager
   bpmInput: {fileID: 1857204310}
   offsetInput: {fileID: 1848725066}
+  songTitleTxt: {fileID: 1360010927}
   statusTxt: {fileID: 1863890625}
   beatmapDropdown: {fileID: 1528507568}
   saveBtn: {fileID: 1363321746}
